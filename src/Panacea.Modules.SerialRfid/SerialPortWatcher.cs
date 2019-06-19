@@ -35,7 +35,7 @@ namespace Panacea.Modules.SerialRfid
         {
             IEnumerable<string> ports = SerialPort.GetPortNames().OrderBy(s => s);
 
-            foreach (string comPort in ComPorts)
+            foreach (string comPort in ComPorts.ToList())
             {
                 if (!ports.Contains(comPort))
                 {
@@ -43,7 +43,7 @@ namespace Panacea.Modules.SerialRfid
                 }
             }
 
-            foreach (var port in ports)
+            foreach (var port in ports.ToList())
             {
                 if (!ComPorts.Contains(port))
                 {
